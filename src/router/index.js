@@ -1,24 +1,61 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import Listings from '../views/Listings.vue'
+import Login from '../views/Login.vue'
+import Signup from '../views/Signup.vue'
+import AddJob from '../views/AddJob.vue'
+import Account from '../views/Account.vue'
+import Job from '../views/Job.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: {name: 'Listings'}
+    // name: 'Home',
+    // component: Home
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/listings',
+    name: 'Listings',
+    component: Listings
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: Signup
+  },
+  {
+    path: '/addjob',
+    name: 'addjob',
+    component: AddJob
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: Account
+  },
+  {
+    path: '/job/:job_id',
+    name: 'job',
+    component: Job
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
