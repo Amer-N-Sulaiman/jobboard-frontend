@@ -6,6 +6,7 @@ import Signup from '../views/Signup.vue'
 import AddJob from '../views/AddJob.vue'
 import Account from '../views/Account.vue'
 import Job from '../views/Job.vue'
+import Developer from '@/views/Developer.vue'
 
 const routes = [
   {
@@ -51,6 +52,11 @@ const routes = [
     path: '/job/:job_id',
     name: 'job',
     component: Job
+  },
+  {
+    path: '/developer',
+    name: 'developer',
+    component: Developer
   }
 ]
 
